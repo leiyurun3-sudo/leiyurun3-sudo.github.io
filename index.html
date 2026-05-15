@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lei Yurun | Systems & AI Engineer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e1a;--card:#111827;--border:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--primary:#38bdf8;--cyan:#22d3ee;--emerald:#34d399;--violet:#a78bfa}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.8}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(10,14,26,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(30,41,59,.5)}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--primary)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:13px;color:var(--muted);font-weight:500}
+.nav-links a:hover{color:var(--primary)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding-top:80px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(56,189,248,.06) 0%,transparent 60%)}
+.hero h1{font-size:clamp(2.5rem,6vw,5rem);font-weight:800;margin-bottom:12px}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--primary),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .subtitle{font-size:1.25rem;color:var(--muted);margin-bottom:8px}
+.hero .desc{max-width:640px;margin:0 auto 40px;color:#64748b;font-size:.95rem}
+.hero .desc span.ai{color:var(--primary)}
+.hero .desc span.dist{color:var(--cyan)}
+.hero .desc span.sec{color:var(--emerald)}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:999px;background:rgba(17,24,39,.8);border:1px solid var(--border);font-size:12px;color:var(--muted);margin-bottom:32px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.domains{display:flex;justify-content:center;gap:32px;margin-bottom:48px}
+.domain{display:flex;flex-direction:column;align-items:center;gap:8px}
+.domain .icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid}
+.domain.ai .icon{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.25);color:var(--primary)}
+.domain.dist .icon{background:rgba(34,211,238,.08);border-color:rgba(34,211,238,.25);color:var(--cyan)}
+.domain.sec .icon{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);color:var(--emerald)}
+.domain span{font-size:11px;color:#64748b}
+
+/* SECTIONS */
+section{padding:100px 0}
+section h2{font-size:2rem;font-weight:700;margin-bottom:12px}
+section .section-desc{color:var(--muted);max-width:600px;margin-bottom:48px;font-size:1rem}
+
+/* PROJECT CARDS */
+.project{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:40px;margin-bottom:32px;transition:border-color .3s}
+.project:hover{border-color:rgba(56,189,248,.3)}
+.project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.project-badges{display:flex;gap:8px;flex-wrap:wrap}
+.project-badges .status{padding:3px 10px;border-radius:6px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.status.prod{background:rgba(56,189,248,.15);color:var(--primary)}
+.status.dev{background:rgba(34,211,238,.15);color:var(--cyan)}
+.status.research{background:rgba(52,211,153,.15);color:var(--emerald)}
+.project h3{font-size:1.5rem;font-weight:700;margin-bottom:4px}
+.project .project-sub{font-size:.85rem;color:var(--muted);margin-bottom:16px}
+.project p{color:#94a3b8;margin-bottom:24px;line-height:1.7}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:28px}
+.metric{text-align:center;padding:14px;border-radius:12px;background:rgba(15,23,42,.6);border:1px solid rgba(30,41,59,.5)}
+.metric .val{font-size:1.1rem;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace}
+.metric .label{font-size:10px;color:#64748b;margin-top:4px}
+.arch-title{font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.arch-list{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-bottom:24px}
+.arch-list li{font-size:.82rem;color:#64748b;list-style:none;padding-left:12px;position:relative}
+.arch-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--border)}
+.highlights{margin-bottom:24px}
+.highlights li{font-size:.85rem;color:#94a3b8;margin-bottom:6px;padding-left:16px;position:relative;list-style:none}
+.highlights li::before{content:'\203A';position:absolute;left:0;color:#475569}
+.tech-stack{display:flex;flex-wrap:wrap;gap:8px}
+.tech-stack span{padding:4px 12px;font-size:11px;font-family:'JetBrains Mono',monospace;border-radius:999px;background:rgba(15,23,42,.8);border:1px solid var(--border);color:var(--muted);transition:all .2s}
+.tech-stack span:hover{border-color:rgba(56,189,248,.4);color:var(--primary)}
+
+/* ARCHITECTURE */
+.arch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.arch-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.arch-card h4{font-size:.85rem;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.arch-card ul{list-style:none}
+.arch-card li{font-size:.82rem;color:#64748b;padding:4px 0;padding-left:14px;position:relative}
+.arch-card li::before{content:'';position:absolute;left:0;top:10px;width:4px;height:4px;border-radius:50%;background:#334155}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
+.skill-card h4{font-size:.85rem;font-weight:600;margin-bottom:14px}
+.skill-card .tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-card .tags span{padding:4px 10px;font-size:11px;border-radius:999px;background:rgba(15,23,42,.8);border:1px solid var(--border);color:var(--muted)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;max-width:600px;margin:0 auto}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;text-align:center;transition:border-color .3s}
+.contact-card:hover{border-color:rgba(56,189,248,.3)}
+.contact-card .c-icon{font-size:24px;margin-bottom:8px}
+.contact-card .c-label{font-size:.85rem;font-weight:500;margin-bottom:4px}
+.contact-card .c-desc{font-size:11px;color:#64748b}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:24px 0;text-align:center}
+footer p{font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav-links{gap:16px}
+.arch-list{grid-template-columns:1fr}
+.domains{gap:20px}
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+<div class="container">
+<a href="#" class="logo">&#9654; lei.yurun</a>
+<div class="nav-links">
+<a href="#projects">Projects</a>
+<a href="#architecture">Architecture</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="badge"><span class="dot"></span> Open to opportunities</div>
+<h1>Lei <span class="gradient">Yurun</span></h1>
+<p class="subtitle">Systems &amp; AI Infrastructure Engineer</p>
+<p class="desc">Building production-grade distributed systems, multi-agent AI architectures, and automated security platforms. Focused on the intersection of <span class="ai">systems engineering</span>, <span class="dist">machine learning</span>, and <span class="sec">security research</span>.</p>
+<div class="domains">
+<div class="domain ai"><div class="icon">&#9881;</div><span>AI Systems</span></div>
+<div class="domain dist"><div class="icon">&#9733;</div><span>Distributed</span></div>
+<div class="domain sec"><div class="icon">&#9730;</div><span>Security</span></div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<h2>Featured Projects</h2>
+<p class="section-desc">Production-grade systems spanning AI infrastructure, distributed computing, and security research. Each project represents a complete, deployable architecture.</p>
+
+<!-- Project 1 -->
+<article class="project">
+<div class="project-header">
+<div class="project-badges"><span class="status prod">Production</span></div>
+</div>
+<h3>Multi-Agent RAG System</h3>
+<p class="project-sub">Adaptive Routing &amp; Retrieval-Augmented Generation</p>
+<p>A complete production architecture featuring multiple specialized agents (Code Analyst, Citation Retrieval, Summarization, Quality Scoring) orchestrated through an adaptive routing layer. Implements hybrid retrieval combining dense embeddings (BGE-M3) with knowledge graph traversal, conversational memory with session-aware context windows, and built-in Prompt Injection defense with full observability.</p>
+<div class="metrics">
+<div class="metric"><div class="val">94.2%</div><div class="label">Retrieval Accuracy</div></div>
+<div class="metric"><div class="val">&lt;200ms</div><div class="label">P95 Latency</div></div>
+<div class="metric"><div class="val">1.2K QPS</div><div class="label">Throughput</div></div>
+<div class="metric"><div class="val">5</div><div class="label">Specialized Agents</div></div>
+</div>
+<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<ul class="arch-list">
+<li>Multi-Agent Orchestration (Router &#8594; Specialist Agents)</li>
+<li>Hybrid Retrieval: Dense Vectors + Knowledge Graph</li>
+<li>Adaptive Query Routing with Confidence Scoring</li>
+<li>Self-Reflection &amp; Answer Quality Grading</li>
+<li>Session-Aware Conversational Memory</li>
+<li>Prompt Injection Detection Layer</li>
+<li>Distributed Tracing (OpenTelemetry)</li>
+</ul>
+<div class="arch-title">&#9889; Technical Highlights</div>
+<ul class="highlights">
+<li>Designed adaptive routing that selects optimal retrieval strategy based on query complexity analysis</li>
+<li>Implemented self-reflection loop with quality scoring to iteratively improve answer accuracy</li>
+<li>Built prompt injection defense using classifier-based detection before query execution</li>
+<li>Achieved sub-200ms P95 latency for retrieval with pgvector HNSW indexing</li>
+<li>Full observability stack with Prometheus metrics, Grafana dashboards, and distributed tracing</li>
+</ul>
+<div class="tech-stack">
+<span>LangGraph</span><span>CrewAI</span><span>FastAPI</span><span>PostgreSQL/pgvector</span><span>Redis</span><span>Prometheus</span><span>BGE-M3</span><span>Knowledge Graphs</span><span>Docker</span><span>gRPC</span>
+</div>
+</article>
+
+<!-- Project 2 -->
+<article class="project">
+<div class="project-header">
+<div class="project-badges"><span class="status dev">In Development</span></div>
+</div>
+<h3>Distributed Stream Processing Engine</h3>
+<p class="project-sub">Real-time Anomaly Detection Platform</p>
+<p>A self-designed lightweight stream processing architecture (inspired by Flink's Watermark and Window mechanisms) supporting event-time processing with Exactly-Once semantics. The upper detection layer combines statistical methods (Isolation Forest, DBSCAN) with Transformer-based sequence models for multi-dimensional anomaly scoring. Includes a complete monitoring Dashboard and alerting system.</p>
+<div class="metrics">
+<div class="metric"><div class="val">100K evt/s</div><div class="label">Throughput</div></div>
+<div class="metric"><div class="val">&lt;500ms</div><div class="label">Detection Latency</div></div>
+<div class="metric"><div class="val">0.923</div><div class="label">F1 Score</div></div>
+<div class="metric"><div class="val">99.97%</div><div class="label">Uptime</div></div>
+</div>
+<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<ul class="arch-list">
+<li>Custom Stream Engine (Watermark + Sliding Window)</li>
+<li>Exactly-Once Semantics via 2PC + Idempotent Sinks</li>
+<li>Event-Time Processing with Late Data Handling</li>
+<li>Dynamic Partitioning &amp; Backpressure Control</li>
+<li>Hybrid Detection: Statistical + Deep Learning</li>
+<li>Transformer-based Temporal Sequence Model</li>
+<li>Real-time Dashboard &amp; Alert Pipeline</li>
+</ul>
+<div class="arch-title">&#9889; Technical Highlights</div>
+<ul class="highlights">
+<li>Built custom stream processing core in Go/Rust with Watermark-based event-time semantics</li>
+<li>Implemented Exactly-Once delivery guarantees using two-phase commit protocol</li>
+<li>Designed hybrid anomaly scoring combining Isolation Forest with Transformer sequence models</li>
+<li>Supports dynamic topology changes and elastic scaling without data loss</li>
+<li>End-to-end detection latency under 500ms at 100K events/sec throughput</li>
+</ul>
+<div class="tech-stack">
+<span>Go</span><span>Rust</span><span>Kafka</span><span>ClickHouse</span><span>Grafana</span><span>Python</span><span>PyTorch</span><span>Transformer</span><span>Docker</span><span>Kubernetes</span>
+</div>
+</article>
+
+<!-- Project 3 -->
+<article class="project">
+<div class="project-header">
+<div class="project-badges"><span class="status research">Research</span></div>
+</div>
+<h3>Neural Code Search &amp; Vulnerability Detection</h3>
+<p class="project-sub">Automated Security Analysis Platform</p>
+<p>Uses CodeBERT/UniXcoder to build a code embedding repository supporting natural language code search. Automatically recognizes SQL injection, XSS, buffer overflow, and other common vulnerability patterns. Integrates static analysis (AST parsing + data flow analysis) with LLM-based reasoning for vulnerability explanation. Includes CI/CD plugins for GitHub Actions integration.</p>
+<div class="metrics">
+<div class="metric"><div class="val">91.3%</div><div class="label">Detection Precision</div></div>
+<div class="metric"><div class="val">0.847</div><div class="label">Code Search MRR</div></div>
+<div class="metric"><div class="val">&lt;30s/PR</div><div class="label">Scan Speed</div></div>
+<div class="metric"><div class="val">8</div><div class="label">Languages Supported</div></div>
+</div>
+<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<ul class="arch-list">
+<li>Code Embedding Pipeline (CodeBERT/UniXcoder)</li>
+<li>Semantic Code Search with Natural Language Queries</li>
+<li>AST Parsing + Data Flow Graph Construction</li>
+<li>Multi-Pattern Vulnerability Detection Engine</li>
+<li>LLM-Assisted Vulnerability Explanation</li>
+<li>CI/CD Integration (GitHub Actions Plugin)</li>
+<li>Incremental Indexing for Large Repositories</li>
+</ul>
+<div class="arch-title">&#9889; Technical Highlights</div>
+<ul class="highlights">
+<li>Trained custom CodeBERT model on 2M+ code snippets for vulnerability-aware embeddings</li>
+<li>Built Tree-sitter based AST parser in Rust for 10x faster code analysis</li>
+<li>Achieved 91% precision on OWASP Top-10 vulnerability detection benchmarks</li>
+<li>Natural language code search with MRR@10 of 0.847 on CodeSearchNet</li>
+<li>GitHub Actions plugin enables automated PR security scanning in &lt;30s</li>
+</ul>
+<div class="tech-stack">
+<span>PyTorch</span><span>CodeBERT</span><span>UniXcoder</span><span>Tree-sitter</span><span>FastAPI</span><span>ElasticSearch</span><span>Docker</span><span>GitHub Actions</span><span>Rust</span><span>React</span>
+</div>
+</article>
+</div>
+</section>
+
+<section id="architecture">
+<div class="container">
+<h2>System Architecture</h2>
+<p class="section-desc">A unified view of the architectural layers across all three projects, demonstrating full-stack systems thinking.</p>
+<div class="arch-grid">
+<div class="arch-card"><h4><span style="color:var(--primary)">&#9673;</span> Presentation &amp; API</h4><ul><li>FastAPI / gRPC Endpoints</li><li>WebSocket Real-time Feeds</li><li>React Dashboard</li><li>GitHub Actions Plugins</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--violet)">&#9673;</span> Orchestration &amp; Routing</h4><ul><li>Multi-Agent Router</li><li>Task Scheduler</li><li>Stream Topology Manager</li><li>Pipeline Orchestrator</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--cyan)">&#9673;</span> Processing &amp; Intelligence</h4><ul><li>LLM Inference (RAG)</li><li>Anomaly Detection Models</li><li>Code Embedding Engine</li><li>Quality Scoring</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--emerald)">&#9673;</span> Data &amp; Storage</h4><ul><li>PostgreSQL + pgvector</li><li>ClickHouse (Time-series)</li><li>ElasticSearch (Code Index)</li><li>Redis (Cache/Queue)</li></ul></div>
+<div class="arch-card"><h4><span style="color:#fbbf24">&#9673;</span> Infrastructure &amp; Streaming</h4><ul><li>Kafka Event Bus</li><li>Custom Stream Engine</li><li>Kubernetes Orchestration</li><li>Docker Containers</li></ul></div>
+<div class="arch-card"><h4><span style="color:#f87171">&#9673;</span> Observability &amp; Security</h4><ul><li>Prometheus + Grafana</li><li>OpenTelemetry Tracing</li><li>Prompt Injection Defense</li><li>Vulnerability Scanning</li></ul></div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+<h2>Technical Expertise</h2>
+<p class="section-desc">Deep expertise across the full stack &#8212; from low-level systems programming to high-level AI orchestration.</p>
+<div class="skills-grid">
+<div class="skill-card"><h4>&#128187; Languages</h4><div class="tags"><span>Python</span><span>Go</span><span>Rust</span><span>TypeScript</span><span>Java</span><span>C++</span><span>SQL</span></div></div>
+<div class="skill-card"><h4>&#129504; AI / ML</h4><div class="tags"><span>PyTorch</span><span>LangChain/LangGraph</span><span>CrewAI</span><span>Transformers</span><span>RAG Pipelines</span><span>Vector DBs</span><span>CodeBERT</span><span>Prompt Engineering</span></div></div>
+<div class="skill-card"><h4>&#127760; Distributed Systems</h4><div class="tags"><span>Kafka</span><span>Redis</span><span>gRPC</span><span>Kubernetes</span><span>Docker</span><span>Stream Processing</span><span>Consensus Protocols</span><span>Event Sourcing</span></div></div>
+<div class="skill-card"><h4>&#9881; Infrastructure</h4><div class="tags"><span>PostgreSQL</span><span>ClickHouse</span><span>ElasticSearch</span><span>Prometheus</span><span>Grafana</span><span>OpenTelemetry</span><span>GitHub Actions</span><span>Terraform</span></div></div>
+<div class="skill-card"><h4>&#128274; Security</h4><div class="tags"><span>Static Analysis</span><span>AST Parsing</span><span>Vulnerability Detection</span><span>Fuzzing</span><span>SAST/DAST</span><span>Threat Modeling</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container" style="text-align:center">
+<h2>Let's Connect</h2>
+<p class="section-desc" style="margin-left:auto;margin-right:auto">Interested in distributed systems, AI infrastructure, or security research? Always open to discussing technical challenges and collaboration.</p>
+<div class="contact-grid">
+<a href="https://github.com/leiyurun" target="_blank" class="contact-card"><div class="c-icon">&#128736;</div><div class="c-label">GitHub</div><div class="c-desc">Source code</div></a>
+<a href="mailto:leiyurun@example.com" class="contact-card"><div class="c-icon">&#9993;</div><div class="c-label">Email</div><div class="c-desc">Professional inquiries</div></a>
+<a href="https://linkedin.com/in/leiyurun" target="_blank" class="contact-card"><div class="c-icon">&#128101;</div><div class="c-label">LinkedIn</div><div class="c-desc">Network</div></a>
+<a href="#" class="contact-card"><div class="c-icon">&#128196;</div><div class="c-label">Resume</div><div class="c-desc">Download CV</div></a>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="container">
+<p>lei.yurun &copy; 2025 &middot; Built with pure HTML/CSS &middot; Designed for engineers</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
+document.querySelectorAll('.project,.arch-card,.skill-card,.contact-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease, transform .6s ease';obs.observe(el)});
+</script>
+</body>
+</html>
