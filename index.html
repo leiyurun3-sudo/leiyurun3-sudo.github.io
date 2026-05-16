@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lei Yurun | Systems & AI Engineer</title>
+<title>雷雨润 | 系统与AI基础设施工程师</title>
 <style>
+.lang-switch{display:flex;gap:4px;padding:3px;border-radius:8px;background:rgba(15,23,42,.8);border:1px solid var(--border)}
+.lang-switch button{padding:4px 12px;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;transition:all .2s;background:transparent;color:var(--muted)}
+.lang-switch button.active{background:var(--primary);color:#0a0e1a}
+[data-lang-en]{display:none}
+[data-lang-zh]{display:inline}
+html[lang="en"] [data-lang-en]{display:inline}
+html[lang="en"] [data-lang-zh]{display:none}
+html[lang="en"] [data-lang-en-block]{display:block}
+html[lang="en"] [data-lang-zh-block]{display:none}
+html[lang="zh-CN"] [data-lang-en-block]{display:none}
+html[lang="zh-CN"] [data-lang-zh-block]{display:block}
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0a0e1a;--card:#111827;--border:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--primary:#38bdf8;--cyan:#22d3ee;--emerald:#34d399;--violet:#a78bfa}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
@@ -115,64 +126,68 @@ footer p{font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
 <div class="container">
 <a href="#" class="logo">&#9654; lei.yurun</a>
 <div class="nav-links">
-<a href="#projects">Projects</a>
-<a href="#architecture">Architecture</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
+<a href="#projects"><span data-lang-zh>项目</span><span data-lang-en>Projects</span></a>
+<a href="#architecture"><span data-lang-zh>架构</span><span data-lang-en>Architecture</span></a>
+<a href="#skills"><span data-lang-zh>技术栈</span><span data-lang-en>Skills</span></a>
+<a href="#contact"><span data-lang-zh>联系</span><span data-lang-en>Contact</span></a>
+<div class="lang-switch">
+<button onclick="switchLang('zh-CN')" class="active" id="btn-zh">中</button>
+<button onclick="switchLang('en')" id="btn-en">EN</button>
+</div>
 </div>
 </div>
 </nav>
 
 <section class="hero">
 <div class="container">
-<div class="badge"><span class="dot"></span> Open to opportunities</div>
-<h1>Lei <span class="gradient">Yurun</span></h1>
-<p class="subtitle">Systems &amp; AI Infrastructure Engineer</p>
-<p class="desc">Building production-grade distributed systems, multi-agent AI architectures, and automated security platforms. Focused on the intersection of <span class="ai">systems engineering</span>, <span class="dist">machine learning</span>, and <span class="sec">security research</span>.</p>
+<div class="badge"><span class="dot"></span> <span data-lang-zh>开放合作机会</span><span data-lang-en>Open to opportunities</span></div>
+<h1><span data-lang-zh>雷</span><span data-lang-en>Lei </span><span class="gradient"><span data-lang-zh>雨润</span><span data-lang-en>Yurun</span></span></h1>
+<p class="subtitle"><span data-lang-zh>系统与AI基础设施工程师</span><span data-lang-en>Systems &amp; AI Infrastructure Engineer</span></p>
+<p class="desc"><span data-lang-zh>构建生产级分布式系统、多智能体AI架构和自动化安全平台。专注于<span class="ai">系统工程</span>、<span class="dist">机器学习</span>和<span class="sec">安全研究</span>的交叉领域。</span><span data-lang-en>Building production-grade distributed systems, multi-agent AI architectures, and automated security platforms. Focused on the intersection of <span class="ai">systems engineering</span>, <span class="dist">machine learning</span>, and <span class="sec">security research</span>.</span></p>
 <div class="domains">
-<div class="domain ai"><div class="icon">&#9881;</div><span>AI Systems</span></div>
-<div class="domain dist"><div class="icon">&#9733;</div><span>Distributed</span></div>
-<div class="domain sec"><div class="icon">&#9730;</div><span>Security</span></div>
+<div class="domain ai"><div class="icon">&#9881;</div><span data-lang-zh>AI系统</span><span data-lang-en>AI Systems</span></div>
+<div class="domain dist"><div class="icon">&#9733;</div><span data-lang-zh>分布式</span><span data-lang-en>Distributed</span></div>
+<div class="domain sec"><div class="icon">&#9730;</div><span data-lang-zh>安全</span><span data-lang-en>Security</span></div>
 </div>
 </div>
 </section>
 
 <section id="projects">
 <div class="container">
-<h2>Featured Projects</h2>
-<p class="section-desc">Production-grade systems spanning AI infrastructure, distributed computing, and security research. Each project represents a complete, deployable architecture.</p>
+<h2><span data-lang-zh>核心项目</span><span data-lang-en>Featured Projects</span></h2>
+<p class="section-desc"><span data-lang-zh>覆盖AI基础设施、分布式计算和安全研究的生产级系统。每个项目都代表一个完整的、可部署的架构。</span><span data-lang-en>Production-grade systems spanning AI infrastructure, distributed computing, and security research. Each project represents a complete, deployable architecture.</span></p>
 
 <!-- Project 1 -->
 <article class="project">
 <div class="project-header">
-<div class="project-badges"><span class="status prod">Production</span></div>
+<div class="project-badges"><span class="status prod"><span data-lang-zh>生产环境</span><span data-lang-en>Production</span></span></div>
 </div>
-<h3>Multi-Agent RAG System</h3>
-<p class="project-sub">Adaptive Routing &amp; Retrieval-Augmented Generation</p>
-<p>A complete production architecture featuring multiple specialized agents (Code Analyst, Citation Retrieval, Summarization, Quality Scoring) orchestrated through an adaptive routing layer. Implements hybrid retrieval combining dense embeddings (BGE-M3) with knowledge graph traversal, conversational memory with session-aware context windows, and built-in Prompt Injection defense with full observability.</p>
+<h3><span data-lang-zh>多智能体RAG系统</span><span data-lang-en>Multi-Agent RAG System</span></h3>
+<p class="project-sub"><span data-lang-zh>自适应路由与检索增强生成</span><span data-lang-en>Adaptive Routing &amp; Retrieval-Augmented Generation</span></p>
+<p><span data-lang-zh>完整的生产级多智能体架构，包含多个专业Agent（代码分析、论文检索、摘要生成、质量评分），通过自适应路由层进行编排。实现了混合检索（BGE-M3稠密向量+知识图谱遍历）、会话感知上下文记忆、Prompt注入防御，以及基于OpenTelemetry的全链路可观测性。</span><span data-lang-en>A complete production architecture featuring multiple specialized agents (Code Analyst, Citation Retrieval, Summarization, Quality Scoring) orchestrated through an adaptive routing layer. Implements hybrid retrieval combining dense embeddings (BGE-M3) with knowledge graph traversal, conversational memory with session-aware context windows, and built-in Prompt Injection defense with full observability.</span></p>
 <div class="metrics">
-<div class="metric"><div class="val">94.2%</div><div class="label">Retrieval Accuracy</div></div>
-<div class="metric"><div class="val">&lt;200ms</div><div class="label">P95 Latency</div></div>
-<div class="metric"><div class="val">1.2K QPS</div><div class="label">Throughput</div></div>
-<div class="metric"><div class="val">5</div><div class="label">Specialized Agents</div></div>
+<div class="metric"><div class="val">94.2%</div><div class="label"><span data-lang-zh>检索准确率</span><span data-lang-en>Retrieval Accuracy</span></div></div>
+<div class="metric"><div class="val">&lt;200ms</div><div class="label"><span data-lang-zh>P95延迟</span><span data-lang-en>P95 Latency</span></div></div>
+<div class="metric"><div class="val">1.2K QPS</div><div class="label"><span data-lang-zh>吞吐量</span><span data-lang-en>Throughput</span></div></div>
+<div class="metric"><div class="val">5</div><div class="label"><span data-lang-zh>专业Agent</span><span data-lang-en>Specialized Agents</span></div></div>
 </div>
-<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<div class="arch-title">&#9670; <span data-lang-zh>架构设计</span><span data-lang-en>Architecture &amp; Design</span></div>
 <ul class="arch-list">
-<li>Multi-Agent Orchestration (Router &#8594; Specialist Agents)</li>
-<li>Hybrid Retrieval: Dense Vectors + Knowledge Graph</li>
-<li>Adaptive Query Routing with Confidence Scoring</li>
-<li>Self-Reflection &amp; Answer Quality Grading</li>
-<li>Session-Aware Conversational Memory</li>
-<li>Prompt Injection Detection Layer</li>
-<li>Distributed Tracing (OpenTelemetry)</li>
+<li><span data-lang-zh>多Agent编排（路由器 &#8594; 专业Agent）</span><span data-lang-en>Multi-Agent Orchestration (Router &#8594; Specialist Agents)</span></li>
+<li><span data-lang-zh>混合检索：稠密向量 + 知识图谱</span><span data-lang-en>Hybrid Retrieval: Dense Vectors + Knowledge Graph</span></li>
+<li><span data-lang-zh>基于置信度评分的自适应查询路由</span><span data-lang-en>Adaptive Query Routing with Confidence Scoring</span></li>
+<li><span data-lang-zh>自反思与答案质量评分</span><span data-lang-en>Self-Reflection &amp; Answer Quality Grading</span></li>
+<li><span data-lang-zh>会话感知上下文记忆</span><span data-lang-en>Session-Aware Conversational Memory</span></li>
+<li><span data-lang-zh>Prompt注入检测层</span><span data-lang-en>Prompt Injection Detection Layer</span></li>
+<li><span data-lang-zh>分布式链路追踪（OpenTelemetry）</span><span data-lang-en>Distributed Tracing (OpenTelemetry)</span></li>
 </ul>
-<div class="arch-title">&#9889; Technical Highlights</div>
+<div class="arch-title">&#9889; <span data-lang-zh>技术亮点</span><span data-lang-en>Technical Highlights</span></div>
 <ul class="highlights">
-<li>Designed adaptive routing that selects optimal retrieval strategy based on query complexity analysis</li>
-<li>Implemented self-reflection loop with quality scoring to iteratively improve answer accuracy</li>
-<li>Built prompt injection defense using classifier-based detection before query execution</li>
-<li>Achieved sub-200ms P95 latency for retrieval with pgvector HNSW indexing</li>
-<li>Full observability stack with Prometheus metrics, Grafana dashboards, and distributed tracing</li>
+<li><span data-lang-zh>设计自适应路由，根据查询复杂度分析选择最优检索策略</span><span data-lang-en>Designed adaptive routing that selects optimal retrieval strategy based on query complexity analysis</span></li>
+<li><span data-lang-zh>实现自反思循环与质量评分，迭代提升答案准确性</span><span data-lang-en>Implemented self-reflection loop with quality scoring to iteratively improve answer accuracy</span></li>
+<li><span data-lang-zh>构建基于分类器的Prompt注入防御，在查询执行前拦截</span><span data-lang-en>Built prompt injection defense using classifier-based detection before query execution</span></li>
+<li><span data-lang-zh>通过pgvector HNSW索引实现P95延迟低于200ms</span><span data-lang-en>Achieved sub-200ms P95 latency for retrieval with pgvector HNSW indexing</span></li>
+<li><span data-lang-zh>完整可观测性栈：Prometheus指标 + Grafana仪表盘 + 分布式追踪</span><span data-lang-en>Full observability stack with Prometheus metrics, Grafana dashboards, and distributed tracing</span></li>
 </ul>
 <div class="tech-stack">
 <span>LangGraph</span><span>CrewAI</span><span>FastAPI</span><span>PostgreSQL/pgvector</span><span>Redis</span><span>Prometheus</span><span>BGE-M3</span><span>Knowledge Graphs</span><span>Docker</span><span>gRPC</span>
@@ -182,34 +197,34 @@ footer p{font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
 <!-- Project 2 -->
 <article class="project">
 <div class="project-header">
-<div class="project-badges"><span class="status dev">In Development</span></div>
+<div class="project-badges"><span class="status dev"><span data-lang-zh>开发中</span><span data-lang-en>In Development</span></span></div>
 </div>
-<h3>Distributed Stream Processing Engine</h3>
-<p class="project-sub">Real-time Anomaly Detection Platform</p>
-<p>A self-designed lightweight stream processing architecture (inspired by Flink's Watermark and Window mechanisms) supporting event-time processing with Exactly-Once semantics. The upper detection layer combines statistical methods (Isolation Forest, DBSCAN) with Transformer-based sequence models for multi-dimensional anomaly scoring. Includes a complete monitoring Dashboard and alerting system.</p>
+<h3><span data-lang-zh>分布式流处理引擎</span><span data-lang-en>Distributed Stream Processing Engine</span></h3>
+<p class="project-sub"><span data-lang-zh>实时异常检测平台</span><span data-lang-en>Real-time Anomaly Detection Platform</span></p>
+<p><span data-lang-zh>自研轻量级流处理架构（参考Flink的Watermark和Window机制），支持事件时间处理与Exactly-Once语义。上层检测层融合统计方法（Isolation Forest、DBSCAN）和基于Transformer的时序模型，实现多维异常评分。包含完整的监控Dashboard和告警系统。</span><span data-lang-en>A self-designed lightweight stream processing architecture (inspired by Flink's Watermark and Window mechanisms) supporting event-time processing with Exactly-Once semantics. The upper detection layer combines statistical methods (Isolation Forest, DBSCAN) with Transformer-based sequence models for multi-dimensional anomaly scoring. Includes a complete monitoring Dashboard and alerting system.</span></p>
 <div class="metrics">
-<div class="metric"><div class="val">100K evt/s</div><div class="label">Throughput</div></div>
-<div class="metric"><div class="val">&lt;500ms</div><div class="label">Detection Latency</div></div>
-<div class="metric"><div class="val">0.923</div><div class="label">F1 Score</div></div>
-<div class="metric"><div class="val">99.97%</div><div class="label">Uptime</div></div>
+<div class="metric"><div class="val">100K evt/s</div><div class="label"><span data-lang-zh>吞吐量</span><span data-lang-en>Throughput</span></div></div>
+<div class="metric"><div class="val">&lt;500ms</div><div class="label"><span data-lang-zh>检测延迟</span><span data-lang-en>Detection Latency</span></div></div>
+<div class="metric"><div class="val">0.923</div><div class="label"><span data-lang-zh>F1分数</span><span data-lang-en>F1 Score</span></div></div>
+<div class="metric"><div class="val">99.97%</div><div class="label"><span data-lang-zh>可用性</span><span data-lang-en>Uptime</span></div></div>
 </div>
-<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<div class="arch-title">&#9670; <span data-lang-zh>架构设计</span><span data-lang-en>Architecture &amp; Design</span></div>
 <ul class="arch-list">
-<li>Custom Stream Engine (Watermark + Sliding Window)</li>
-<li>Exactly-Once Semantics via 2PC + Idempotent Sinks</li>
-<li>Event-Time Processing with Late Data Handling</li>
-<li>Dynamic Partitioning &amp; Backpressure Control</li>
-<li>Hybrid Detection: Statistical + Deep Learning</li>
-<li>Transformer-based Temporal Sequence Model</li>
-<li>Real-time Dashboard &amp; Alert Pipeline</li>
+<li><span data-lang-zh>自研流引擎（Watermark + 滑动窗口）</span><span data-lang-en>Custom Stream Engine (Watermark + Sliding Window)</span></li>
+<li><span data-lang-zh>基于2PC + 幂等Sink的Exactly-Once语义</span><span data-lang-en>Exactly-Once Semantics via 2PC + Idempotent Sinks</span></li>
+<li><span data-lang-zh>事件时间处理与迟到数据处理</span><span data-lang-en>Event-Time Processing with Late Data Handling</span></li>
+<li><span data-lang-zh>动态分区与反压控制</span><span data-lang-en>Dynamic Partitioning &amp; Backpressure Control</span></li>
+<li><span data-lang-zh>混合检测：统计方法 + 深度学习</span><span data-lang-en>Hybrid Detection: Statistical + Deep Learning</span></li>
+<li><span data-lang-zh>基于Transformer的时序模型</span><span data-lang-en>Transformer-based Temporal Sequence Model</span></li>
+<li><span data-lang-zh>实时监控Dashboard与告警管道</span><span data-lang-en>Real-time Dashboard &amp; Alert Pipeline</span></li>
 </ul>
-<div class="arch-title">&#9889; Technical Highlights</div>
+<div class="arch-title">&#9889; <span data-lang-zh>技术亮点</span><span data-lang-en>Technical Highlights</span></div>
 <ul class="highlights">
-<li>Built custom stream processing core in Go/Rust with Watermark-based event-time semantics</li>
-<li>Implemented Exactly-Once delivery guarantees using two-phase commit protocol</li>
-<li>Designed hybrid anomaly scoring combining Isolation Forest with Transformer sequence models</li>
-<li>Supports dynamic topology changes and elastic scaling without data loss</li>
-<li>End-to-end detection latency under 500ms at 100K events/sec throughput</li>
+<li><span data-lang-zh>用Go/Rust构建自研流处理核心，实现基于Watermark的事件时间语义</span><span data-lang-en>Built custom stream processing core in Go/Rust with Watermark-based event-time semantics</span></li>
+<li><span data-lang-zh>通过两阶段提交协议实现Exactly-Once投递保证</span><span data-lang-en>Implemented Exactly-Once delivery guarantees using two-phase commit protocol</span></li>
+<li><span data-lang-zh>设计混合异常评分，融合Isolation Forest与Transformer时序模型</span><span data-lang-en>Designed hybrid anomaly scoring combining Isolation Forest with Transformer sequence models</span></li>
+<li><span data-lang-zh>支持动态拓扑变更和弹性扩缩容，零数据丢失</span><span data-lang-en>Supports dynamic topology changes and elastic scaling without data loss</span></li>
+<li><span data-lang-zh>在10万事件/秒吞吐下端到端检测延迟低于500ms</span><span data-lang-en>End-to-end detection latency under 500ms at 100K events/sec throughput</span></li>
 </ul>
 <div class="tech-stack">
 <span>Go</span><span>Rust</span><span>Kafka</span><span>ClickHouse</span><span>Grafana</span><span>Python</span><span>PyTorch</span><span>Transformer</span><span>Docker</span><span>Kubernetes</span>
@@ -219,34 +234,34 @@ footer p{font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
 <!-- Project 3 -->
 <article class="project">
 <div class="project-header">
-<div class="project-badges"><span class="status research">Research</span></div>
+<div class="project-badges"><span class="status research"><span data-lang-zh>研究项目</span><span data-lang-en>Research</span></span></div>
 </div>
-<h3>Neural Code Search &amp; Vulnerability Detection</h3>
-<p class="project-sub">Automated Security Analysis Platform</p>
-<p>Uses CodeBERT/UniXcoder to build a code embedding repository supporting natural language code search. Automatically recognizes SQL injection, XSS, buffer overflow, and other common vulnerability patterns. Integrates static analysis (AST parsing + data flow analysis) with LLM-based reasoning for vulnerability explanation. Includes CI/CD plugins for GitHub Actions integration.</p>
+<h3><span data-lang-zh>神经代码搜索与漏洞检测平台</span><span data-lang-en>Neural Code Search &amp; Vulnerability Detection</span></h3>
+<p class="project-sub"><span data-lang-zh>自动化安全分析平台</span><span data-lang-en>Automated Security Analysis Platform</span></p>
+<p><span data-lang-zh>使用CodeBERT/UniXcoder构建代码嵌入仓库，支持自然语言代码搜索。自动识别SQL注入、XSS、缓冲区溢出等常见漏洞模式。集成静态分析（AST解析+数据流分析）与LLM推理进行漏洞解释。包含CI/CD插件，可集成GitHub Actions。</span><span data-lang-en>Uses CodeBERT/UniXcoder to build a code embedding repository supporting natural language code search. Automatically recognizes SQL injection, XSS, buffer overflow, and other common vulnerability patterns. Integrates static analysis (AST parsing + data flow analysis) with LLM-based reasoning for vulnerability explanation. Includes CI/CD plugins for GitHub Actions integration.</span></p>
 <div class="metrics">
-<div class="metric"><div class="val">91.3%</div><div class="label">Detection Precision</div></div>
-<div class="metric"><div class="val">0.847</div><div class="label">Code Search MRR</div></div>
-<div class="metric"><div class="val">&lt;30s/PR</div><div class="label">Scan Speed</div></div>
-<div class="metric"><div class="val">8</div><div class="label">Languages Supported</div></div>
+<div class="metric"><div class="val">91.3%</div><div class="label"><span data-lang-zh>检测精度</span><span data-lang-en>Detection Precision</span></div></div>
+<div class="metric"><div class="val">0.847</div><div class="label"><span data-lang-zh>代码搜索MRR</span><span data-lang-en>Code Search MRR</span></div></div>
+<div class="metric"><div class="val">&lt;30s/PR</div><div class="label"><span data-lang-zh>扫描速度</span><span data-lang-en>Scan Speed</span></div></div>
+<div class="metric"><div class="val">8</div><div class="label"><span data-lang-zh>支持语言数</span><span data-lang-en>Languages Supported</span></div></div>
 </div>
-<div class="arch-title">&#9670; Architecture &amp; Design</div>
+<div class="arch-title">&#9670; <span data-lang-zh>架构设计</span><span data-lang-en>Architecture &amp; Design</span></div>
 <ul class="arch-list">
-<li>Code Embedding Pipeline (CodeBERT/UniXcoder)</li>
-<li>Semantic Code Search with Natural Language Queries</li>
-<li>AST Parsing + Data Flow Graph Construction</li>
-<li>Multi-Pattern Vulnerability Detection Engine</li>
-<li>LLM-Assisted Vulnerability Explanation</li>
-<li>CI/CD Integration (GitHub Actions Plugin)</li>
-<li>Incremental Indexing for Large Repositories</li>
+<li><span data-lang-zh>代码嵌入管道（CodeBERT/UniXcoder）</span><span data-lang-en>Code Embedding Pipeline (CodeBERT/UniXcoder)</span></li>
+<li><span data-lang-zh>自然语言语义代码搜索</span><span data-lang-en>Semantic Code Search with Natural Language Queries</span></li>
+<li><span data-lang-zh>AST解析 + 数据流图构建</span><span data-lang-en>AST Parsing + Data Flow Graph Construction</span></li>
+<li><span data-lang-zh>多模式漏洞检测引擎</span><span data-lang-en>Multi-Pattern Vulnerability Detection Engine</span></li>
+<li><span data-lang-zh>LLM辅助漏洞解释</span><span data-lang-en>LLM-Assisted Vulnerability Explanation</span></li>
+<li><span data-lang-zh>CI/CD集成（GitHub Actions插件）</span><span data-lang-en>CI/CD Integration (GitHub Actions Plugin)</span></li>
+<li><span data-lang-zh>大型仓库增量索引</span><span data-lang-en>Incremental Indexing for Large Repositories</span></li>
 </ul>
-<div class="arch-title">&#9889; Technical Highlights</div>
+<div class="arch-title">&#9889; <span data-lang-zh>技术亮点</span><span data-lang-en>Technical Highlights</span></div>
 <ul class="highlights">
-<li>Trained custom CodeBERT model on 2M+ code snippets for vulnerability-aware embeddings</li>
-<li>Built Tree-sitter based AST parser in Rust for 10x faster code analysis</li>
-<li>Achieved 91% precision on OWASP Top-10 vulnerability detection benchmarks</li>
-<li>Natural language code search with MRR@10 of 0.847 on CodeSearchNet</li>
-<li>GitHub Actions plugin enables automated PR security scanning in &lt;30s</li>
+<li><span data-lang-zh>在200万+代码片段上训练自定义CodeBERT模型，生成漏洞感知嵌入</span><span data-lang-en>Trained custom CodeBERT model on 2M+ code snippets for vulnerability-aware embeddings</span></li>
+<li><span data-lang-zh>用Rust构建基于Tree-sitter的AST解析器，代码分析速度提升10倍</span><span data-lang-en>Built Tree-sitter based AST parser in Rust for 10x faster code analysis</span></li>
+<li><span data-lang-zh>在OWASP Top-10漏洞检测基准上达到91%精度</span><span data-lang-en>Achieved 91% precision on OWASP Top-10 vulnerability detection benchmarks</span></li>
+<li><span data-lang-zh>自然语言代码搜索在CodeSearchNet上MRR@10达到0.847</span><span data-lang-en>Natural language code search with MRR@10 of 0.847 on CodeSearchNet</span></li>
+<li><span data-lang-zh>GitHub Actions插件实现PR自动安全扫描，耗时低于30秒</span><span data-lang-en>GitHub Actions plugin enables automated PR security scanning in &lt;30s</span></li>
 </ul>
 <div class="tech-stack">
 <span>PyTorch</span><span>CodeBERT</span><span>UniXcoder</span><span>Tree-sitter</span><span>FastAPI</span><span>ElasticSearch</span><span>Docker</span><span>GitHub Actions</span><span>Rust</span><span>React</span>
@@ -257,53 +272,64 @@ footer p{font-size:12px;color:#475569;font-family:'JetBrains Mono',monospace}
 
 <section id="architecture">
 <div class="container">
-<h2>System Architecture</h2>
-<p class="section-desc">A unified view of the architectural layers across all three projects, demonstrating full-stack systems thinking.</p>
+<h2><span data-lang-zh>系统架构</span><span data-lang-en>System Architecture</span></h2>
+<p class="section-desc"><span data-lang-zh>三个项目的统一架构视图，展示从API设计到基础设施的全栈系统思维。</span><span data-lang-en>A unified view of the architectural layers across all three projects, demonstrating full-stack systems thinking.</span></p>
 <div class="arch-grid">
-<div class="arch-card"><h4><span style="color:var(--primary)">&#9673;</span> Presentation &amp; API</h4><ul><li>FastAPI / gRPC Endpoints</li><li>WebSocket Real-time Feeds</li><li>React Dashboard</li><li>GitHub Actions Plugins</li></ul></div>
-<div class="arch-card"><h4><span style="color:var(--violet)">&#9673;</span> Orchestration &amp; Routing</h4><ul><li>Multi-Agent Router</li><li>Task Scheduler</li><li>Stream Topology Manager</li><li>Pipeline Orchestrator</li></ul></div>
-<div class="arch-card"><h4><span style="color:var(--cyan)">&#9673;</span> Processing &amp; Intelligence</h4><ul><li>LLM Inference (RAG)</li><li>Anomaly Detection Models</li><li>Code Embedding Engine</li><li>Quality Scoring</li></ul></div>
-<div class="arch-card"><h4><span style="color:var(--emerald)">&#9673;</span> Data &amp; Storage</h4><ul><li>PostgreSQL + pgvector</li><li>ClickHouse (Time-series)</li><li>ElasticSearch (Code Index)</li><li>Redis (Cache/Queue)</li></ul></div>
-<div class="arch-card"><h4><span style="color:#fbbf24">&#9673;</span> Infrastructure &amp; Streaming</h4><ul><li>Kafka Event Bus</li><li>Custom Stream Engine</li><li>Kubernetes Orchestration</li><li>Docker Containers</li></ul></div>
-<div class="arch-card"><h4><span style="color:#f87171">&#9673;</span> Observability &amp; Security</h4><ul><li>Prometheus + Grafana</li><li>OpenTelemetry Tracing</li><li>Prompt Injection Defense</li><li>Vulnerability Scanning</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--primary)">&#9673;</span> <span data-lang-zh>展示与API层</span><span data-lang-en>Presentation &amp; API</span></h4><ul><li>FastAPI / gRPC Endpoints</li><li>WebSocket Real-time Feeds</li><li>React Dashboard</li><li>GitHub Actions Plugins</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--violet)">&#9673;</span> <span data-lang-zh>编排与路由层</span><span data-lang-en>Orchestration &amp; Routing</span></h4><ul><li>Multi-Agent Router</li><li>Task Scheduler</li><li>Stream Topology Manager</li><li>Pipeline Orchestrator</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--cyan)">&#9673;</span> <span data-lang-zh>处理与智能层</span><span data-lang-en>Processing &amp; Intelligence</span></h4><ul><li>LLM Inference (RAG)</li><li>Anomaly Detection Models</li><li>Code Embedding Engine</li><li>Quality Scoring</li></ul></div>
+<div class="arch-card"><h4><span style="color:var(--emerald)">&#9673;</span> <span data-lang-zh>数据与存储层</span><span data-lang-en>Data &amp; Storage</span></h4><ul><li>PostgreSQL + pgvector</li><li>ClickHouse (Time-series)</li><li>ElasticSearch (Code Index)</li><li>Redis (Cache/Queue)</li></ul></div>
+<div class="arch-card"><h4><span style="color:#fbbf24">&#9673;</span> <span data-lang-zh>基础设施与流处理</span><span data-lang-en>Infrastructure &amp; Streaming</span></h4><ul><li>Kafka Event Bus</li><li>Custom Stream Engine</li><li>Kubernetes Orchestration</li><li>Docker Containers</li></ul></div>
+<div class="arch-card"><h4><span style="color:#f87171">&#9673;</span> <span data-lang-zh>可观测性与安全</span><span data-lang-en>Observability &amp; Security</span></h4><ul><li>Prometheus + Grafana</li><li>OpenTelemetry Tracing</li><li>Prompt Injection Defense</li><li>Vulnerability Scanning</li></ul></div>
 </div>
 </div>
 </section>
 
 <section id="skills">
 <div class="container">
-<h2>Technical Expertise</h2>
-<p class="section-desc">Deep expertise across the full stack &#8212; from low-level systems programming to high-level AI orchestration.</p>
+<h2><span data-lang-zh>技术专长</span><span data-lang-en>Technical Expertise</span></h2>
+<p class="section-desc"><span data-lang-zh>从底层系统编程到高层AI编排的全栈深度技术能力。</span><span data-lang-en>Deep expertise across the full stack &#8212; from low-level systems programming to high-level AI orchestration.</span></p>
 <div class="skills-grid">
-<div class="skill-card"><h4>&#128187; Languages</h4><div class="tags"><span>Python</span><span>Go</span><span>Rust</span><span>TypeScript</span><span>Java</span><span>C++</span><span>SQL</span></div></div>
+<div class="skill-card"><h4>&#128187; <span data-lang-zh>编程语言</span><span data-lang-en>Languages</span></h4><div class="tags"><span>Python</span><span>Go</span><span>Rust</span><span>TypeScript</span><span>Java</span><span>C++</span><span>SQL</span></div></div>
 <div class="skill-card"><h4>&#129504; AI / ML</h4><div class="tags"><span>PyTorch</span><span>LangChain/LangGraph</span><span>CrewAI</span><span>Transformers</span><span>RAG Pipelines</span><span>Vector DBs</span><span>CodeBERT</span><span>Prompt Engineering</span></div></div>
-<div class="skill-card"><h4>&#127760; Distributed Systems</h4><div class="tags"><span>Kafka</span><span>Redis</span><span>gRPC</span><span>Kubernetes</span><span>Docker</span><span>Stream Processing</span><span>Consensus Protocols</span><span>Event Sourcing</span></div></div>
-<div class="skill-card"><h4>&#9881; Infrastructure</h4><div class="tags"><span>PostgreSQL</span><span>ClickHouse</span><span>ElasticSearch</span><span>Prometheus</span><span>Grafana</span><span>OpenTelemetry</span><span>GitHub Actions</span><span>Terraform</span></div></div>
-<div class="skill-card"><h4>&#128274; Security</h4><div class="tags"><span>Static Analysis</span><span>AST Parsing</span><span>Vulnerability Detection</span><span>Fuzzing</span><span>SAST/DAST</span><span>Threat Modeling</span></div></div>
+<div class="skill-card"><h4>&#127760; <span data-lang-zh>分布式系统</span><span data-lang-en>Distributed Systems</span></h4><div class="tags"><span>Kafka</span><span>Redis</span><span>gRPC</span><span>Kubernetes</span><span>Docker</span><span>Stream Processing</span><span>Consensus Protocols</span><span>Event Sourcing</span></div></div>
+<div class="skill-card"><h4>&#9881; <span data-lang-zh>基础设施</span><span data-lang-en>Infrastructure</span></h4><div class="tags"><span>PostgreSQL</span><span>ClickHouse</span><span>ElasticSearch</span><span>Prometheus</span><span>Grafana</span><span>OpenTelemetry</span><span>GitHub Actions</span><span>Terraform</span></div></div>
+<div class="skill-card"><h4>&#128274; <span data-lang-zh>安全</span><span data-lang-en>Security</span></h4><div class="tags"><span>Static Analysis</span><span>AST Parsing</span><span>Vulnerability Detection</span><span>Fuzzing</span><span>SAST/DAST</span><span>Threat Modeling</span></div></div>
 </div>
 </div>
 </section>
 
 <section id="contact">
 <div class="container" style="text-align:center">
-<h2>Let's Connect</h2>
-<p class="section-desc" style="margin-left:auto;margin-right:auto">Interested in distributed systems, AI infrastructure, or security research? Always open to discussing technical challenges and collaboration.</p>
+<h2><span data-lang-zh>联系我</span><span data-lang-en>Let's Connect</span></h2>
+<p class="section-desc" style="margin-left:auto;margin-right:auto"><span data-lang-zh>对分布式系统、AI基础设施或安全研究感兴趣？随时欢迎讨论技术挑战与合作机会。</span><span data-lang-en>Interested in distributed systems, AI infrastructure, or security research? Always open to discussing technical challenges and collaboration.</span></p>
 <div class="contact-grid">
-<a href="https://github.com/leiyurun" target="_blank" class="contact-card"><div class="c-icon">&#128736;</div><div class="c-label">GitHub</div><div class="c-desc">Source code</div></a>
-<a href="mailto:leiyurun@example.com" class="contact-card"><div class="c-icon">&#9993;</div><div class="c-label">Email</div><div class="c-desc">Professional inquiries</div></a>
-<a href="https://linkedin.com/in/leiyurun" target="_blank" class="contact-card"><div class="c-icon">&#128101;</div><div class="c-label">LinkedIn</div><div class="c-desc">Network</div></a>
-<a href="#" class="contact-card"><div class="c-icon">&#128196;</div><div class="c-label">Resume</div><div class="c-desc">Download CV</div></a>
+<a href="https://github.com/leiyurun3-sudo" target="_blank" class="contact-card"><div class="c-icon">&#128736;</div><div class="c-label">GitHub</div><div class="c-desc"><span data-lang-zh>源代码</span><span data-lang-en>Source code</span></div></a>
+<a href="mailto:leiyurun@example.com" class="contact-card"><div class="c-icon">&#9993;</div><div class="c-label"><span data-lang-zh>邮箱</span><span data-lang-en>Email</span></div><div class="c-desc"><span data-lang-zh>商务咨询</span><span data-lang-en>Professional inquiries</span></div></a>
+<a href="https://linkedin.com/in/leiyurun" target="_blank" class="contact-card"><div class="c-icon">&#128101;</div><div class="c-label">LinkedIn</div><div class="c-desc"><span data-lang-zh>职业社交</span><span data-lang-en>Network</span></div></a>
+<a href="#" class="contact-card"><div class="c-icon">&#128196;</div><div class="c-label"><span data-lang-zh>简历</span><span data-lang-en>Resume</span></div><div class="c-desc"><span data-lang-zh>下载PDF</span><span data-lang-en>Download CV</span></div></a>
 </div>
 </div>
 </section>
 
 <footer>
 <div class="container">
-<p>lei.yurun &copy; 2025 &middot; Built with pure HTML/CSS &middot; Designed for engineers</p>
+<p>lei.yurun &copy; 2025 &middot; <span data-lang-zh>纯HTML/CSS构建 &middot; 为工程师设计</span><span data-lang-en>Built with pure HTML/CSS &middot; Designed for engineers</span></p>
 </div>
 </footer>
 
 <script>
+function switchLang(lang){
+document.documentElement.lang=lang;
+document.getElementById('btn-zh').classList.toggle('active',lang==='zh-CN');
+document.getElementById('btn-en').classList.toggle('active',lang==='en');
+document.title=lang==='zh-CN'?'雷雨润 | 系统与AI基础设施工程师':'Lei Yurun | Systems & AI Engineer';
+localStorage.setItem('lang',lang);
+}
+// restore saved language
+const saved=localStorage.getItem('lang');
+if(saved)switchLang(saved);
+
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}})},{threshold:.1});
 document.querySelectorAll('.project,.arch-card,.skill-card,.contact-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .6s ease, transform .6s ease';obs.observe(el)});
